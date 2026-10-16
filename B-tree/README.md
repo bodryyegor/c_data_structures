@@ -79,27 +79,6 @@ typedef struct Node {
 
 All strings are dynamically allocated and owned by the tree.
 
-## Public API
-
-The public interface is defined in `func.h`. Typical functions include:
-
-```c
-Node *tree_create(void);
-void tree_destroy(Node *root);
-
-int tree_insert(Node **root, const char *key, const char *value, char **old_value);
-int tree_delete(Node **root, const char *key);
-
-int tree_search(const Node *root, const char *key, char **value);
-
-void tree_traverse_reverse(const Node *root, const char *min_key);
-void tree_print(const Node *root);
-int  tree_export_dot(const Node *root, const char *filename);
-
-int tree_load_from_file(Node **root, const char *filename);
-```
-
-All library functions take explicit parameters and return error codes. None of them is dialog-based; the interactive logic lives entirely in `main.c`.
 
 ## Applied task: fast word search
 
