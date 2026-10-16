@@ -101,31 +101,6 @@ e d a b c
 e d a b c f
 ```
 
-## Public API
-
-The public interface is defined in `deque.h`. The exact error codes and types are documented there. Typical functions:
-
-```c
-typedef struct Deque Deque;
-
-Deque *deque_create(void);
-void deque_destroy(Deque *deque);
-
-int deque_push_front(Deque *deque, void *data);
-int deque_push_back(Deque *deque, void *data);
-
-void *deque_pop_front(Deque *deque);
-void *deque_pop_back(Deque *deque);
-
-void *deque_front(const Deque *deque);
-void *deque_back(const Deque *deque);
-
-size_t deque_size(const Deque *deque);
-int deque_is_empty(const Deque *deque);
-```
-
-The deque stores `void *` pointers. It does not own the pointed-to data; the caller is responsible for allocating and freeing patient records.
-
 ## Implementation notes
 
 ### Vector backend (`deque_vector.c`)
