@@ -71,26 +71,6 @@ typedef struct Table {
 - `InfoType` — unsigned integer.
 - `BusyType` — occupancy flag (e.g., `0` for empty, `1` for occupied).
 
-## Public API
-
-The public interface is defined in `func.h`. Typical functions include:
-
-```c
-Table *table_create(IndexType msize);
-void table_destroy(Table *table);
-
-int table_insert(Table *table, KeyType key, InfoType info);
-int table_delete(Table *table, KeyType key);
-int table_search(const Table *table, KeyType key, KeySpace *result);
-
-void table_print(const Table *table);
-
-int table_import(Table *table, const char *filename);
-int table_export(const Table *table, const char *filename);
-```
-
-All functions (except printing and file I/O) are non-dialog: they take explicit parameters and return error codes. The interactive part lives only in `main.c`.
-
 ## Interactive commands
 
 The program supports the following commands:
